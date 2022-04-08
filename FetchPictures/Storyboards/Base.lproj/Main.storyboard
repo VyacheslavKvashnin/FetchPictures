@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ffX-Fi-tLO">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,20 +8,120 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pictures-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FetchPictures" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCt-mM-ENJ">
+                                <rect key="frame" x="126.5" y="268.5" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="t38-bg-oeR" kind="show" identifier="showPictures" id="T4I-BP-HoJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DCt-mM-ENJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Fy-gM-eGG"/>
+                            <constraint firstItem="DCt-mM-ENJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hbm-eV-3WF"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Pictures" id="x6e-2R-jir"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="66"/>
+            <point key="canvasLocation" x="838" y="64"/>
+        </scene>
+        <!--Picture Table View Controller-->
+        <scene sceneID="W6M-tE-cmh">
+            <objects>
+                <tableViewController id="t38-bg-oeR" customClass="PictureTableViewController" customModule="FetchPictures" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eBd-oo-SEU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPicture" rowHeight="100" id="taJ-Lq-OT9" customClass="PictureTableViewCell" customModule="FetchPictures" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="taJ-Lq-OT9" id="bnr-6T-7i1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbM-WM-od8" customClass="CharacterImageView" customModule="FetchPictures" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="Ftg-jF-pgC"/>
+                                                <constraint firstAttribute="width" constant="100" id="Nsh-fK-voL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz9-ds-cHI">
+                                            <rect key="frame" x="139" y="11" width="165" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-tk-xk8">
+                                            <rect key="frame" x="139" y="49" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d3h-tk-xk8" secondAttribute="trailing" constant="20" symbolic="YES" id="8dA-Wj-9y1"/>
+                                        <constraint firstItem="lz9-ds-cHI" firstAttribute="leading" secondItem="hbM-WM-od8" secondAttribute="trailing" constant="23" id="Cbe-YO-zZi"/>
+                                        <constraint firstItem="lz9-ds-cHI" firstAttribute="leading" secondItem="d3h-tk-xk8" secondAttribute="leading" id="HQ6-2O-0Mk"/>
+                                        <constraint firstItem="d3h-tk-xk8" firstAttribute="top" secondItem="lz9-ds-cHI" secondAttribute="bottom" constant="14" id="IbW-M8-vM3"/>
+                                        <constraint firstItem="lz9-ds-cHI" firstAttribute="top" secondItem="bnr-6T-7i1" secondAttribute="topMargin" id="NPs-o2-fVQ"/>
+                                        <constraint firstItem="hbM-WM-od8" firstAttribute="leading" secondItem="bnr-6T-7i1" secondAttribute="leadingMargin" id="dfS-Rp-4Cf"/>
+                                        <constraint firstItem="hbM-WM-od8" firstAttribute="centerY" secondItem="bnr-6T-7i1" secondAttribute="centerY" id="hx7-Jc-ZNs"/>
+                                        <constraint firstAttribute="trailing" secondItem="lz9-ds-cHI" secondAttribute="trailing" constant="16" id="qrX-5j-E89"/>
+                                        <constraint firstItem="lz9-ds-cHI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bnr-6T-7i1" secondAttribute="leading" constant="20" symbolic="YES" id="uPa-St-VJu"/>
+                                        <constraint firstItem="hbM-WM-od8" firstAttribute="top" secondItem="bnr-6T-7i1" secondAttribute="topMargin" constant="-11" id="vv0-9t-Kd1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="d3h-tk-xk8" id="olQ-aB-RXy"/>
+                                    <outlet property="nameLabel" destination="lz9-ds-cHI" id="vnP-2N-P51"/>
+                                    <outlet property="pictureImageView" destination="hbM-WM-od8" id="Pcn-B4-Ro5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="t38-bg-oeR" id="FPN-mG-zeM"/>
+                            <outlet property="delegate" destination="t38-bg-oeR" id="UZH-0o-Tc1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lyn-NE-31z"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWK-TX-DTx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552.5" y="64.436619718309856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Gx-gh-y8P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ffX-Fi-tLO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rmL-P4-YNL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1DC-vT-5x2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhy-tN-0jv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.5" y="65.492957746478879"/>
         </scene>
     </scenes>
     <resources>
